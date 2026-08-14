@@ -129,7 +129,7 @@ public final class MainActivity extends Activity {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
                 ));
-                applyImmersiveMode(true);
+                setImmersiveMode(true);
             }
 
             @Override
@@ -184,14 +184,14 @@ public final class MainActivity extends Activity {
         root.removeView(customView);
         customView = null;
         webView.setVisibility(View.VISIBLE);
-        applyImmersiveMode(false);
+        setImmersiveMode(false);
         if (customViewCallback != null) {
             customViewCallback.onCustomViewHidden();
             customViewCallback = null;
         }
     }
 
-    private void applyImmersiveMode(boolean enabled) {
+    private void setImmersiveMode(boolean enabled) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             WindowInsetsController controller = getWindow().getInsetsController();
             if (controller != null) {
